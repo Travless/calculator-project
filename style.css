@@ -4,6 +4,7 @@
     height: 400px;
     width: 350px;
     background-color: black;
+    align-items: center;
 }
 
 #input-display {
@@ -11,8 +12,11 @@
     margin-top: 25px;
     margin-bottom: 10px;
     height: 50px;
-    width: 275px;
+    width: 260px;
     background-color: white;
+    text-align: right;
+    padding-top: 20px;
+    padding-right: 10px;
 }
 
 #buttons-container {
@@ -28,8 +32,8 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: stretch;
-    justify-content: space-around;
-    margin: 10px;
+    /* justify-content: space-around;
+    margin: 10px; */
 }
 
 #top-row .calc-button {
@@ -40,8 +44,8 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: stretch;
-    justify-content: space-around;
-    margin: 10px;
+    /* justify-content: space-around;
+    margin: 10px; */
 }
 
 #second-row .calc-button {
@@ -52,8 +56,8 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: stretch;
-    justify-content: space-around;
-    margin: 10px;
+    /* justify-content: space-around;
+    margin: 10px; */
 }
 
 #third-row .calc-button {
@@ -64,8 +68,8 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: stretch;
-    justify-content: space-around;
-    margin: 10px;
+    /* justify-content: space-around;
+    margin: 10px; */
 }
 
 #bottom-row .calc-button {
@@ -75,4 +79,68 @@
 .calc-button {
     height: 60px;
     width: 60px;
+}
+
+#zero {
+    border: 5px solid black;
+}
+
+#subtract {
+    border: 5px solid black;
+}
+
+#addition {
+    border: 5px solid black;
+}
+
+#equals {
+    border: 5px solid black;
+}
+
+#multiply {
+    border: 5px solid black;
+}
+
+#three {
+    border: 5px solid black;
+}
+
+#two {
+    border: 5px solid black;
+}
+
+#one {
+    border: 5px solid black;
+}
+
+#divide {
+    border: 5px solid black;
+}
+
+#six {
+    border: 5px solid black;
+}
+
+#five {
+    border: 5px solid black;
+}
+
+#four {
+    border: 5px solid black;
+}
+
+#clear {
+    border: 5px solid black;
+}
+
+#nine {
+    border: 5px solid black;
+}
+
+#eight {
+    border: 5px solid black;
+}
+
+#seven {
+    border: 5px solid black;
 }

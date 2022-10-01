@@ -1,4 +1,12 @@
-let answer;
+let displayValue;
+let equation = [];
+
+let calcDisplay = document.getElementById('input-display');
+// calcDisplay.textContent = displayValue;
+
+let calcButtons = document.getElementsByClassName('calc-button operator');
+
+const numButtons = document.getElementById('buttons-container');
 
 const add = function(a, b) {
     let sum = a + b;
@@ -23,15 +31,27 @@ const divide = function(a, b) {
 const operator = function (op, a, b) {
     let operator = op;
     if (operator === '+'){
-        answer = add(a, b);
+        displayValue = add(a, b);
     } else if (operator === '-'){
-        answer = subtract(a, b);
+        displayValue = subtract(a, b);
     } else if (operator === '*'){
-        answer = multiply(a, b);
+        displayValue = multiply(a, b);
     } else if (operator === "/") {
-        answer = divide(a, b);
+        displayValue = divide(a, b);
     } else {
-        answer = console.log('Invalid input');
+        displayValue = console.log('Invalid input');
     }
-    return answer;
+    return displayValue;
 };
+
+
+
+operator('+', 10, 10);
+
+
+
+numButtons.addEventListener('click', function(event) {
+    calcDisplay.textContent = event.srcElement.textContent;
+    equation.push(Number(event.srcElement.textContent))
+    console.log(equation);
+});
