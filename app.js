@@ -1,107 +1,106 @@
-let displayValue;
-let equation = [];
-
-
 class Calculator {
-    constructor(calcDisplay) {
-        this.calcDisplay = calcDisplay;
+    constructor(prevDisplayInputText, currentDisplayInputText) {
+        this.prevDisplayInputText = prevDisplayInputText;
+        this.currentDisplayInputText = currentDisplayInputText;
         this.clear();
     }
 
-    appendNumber() {
-
+    appendNumber(number) {
+        // if (number === '.' && this.calcDisplay.includes('.')) return;
+        this.currentDisplayInput = this.currentDisplayInput.toString() + number.toString();
     }
 
     clear() {
-        this.calcDisplay = '';
+        this.currentDisplayInput = '';
+        this.prevDisplayInput = '';
         this.operation = undefined;
     }
 
     operationChoice(operation) {
-
+        if (this.currentDisplayInput === '') return;
+        if (this.prevDisplayInput !== '') {
+            this.equals();
+        }
+        this.operation = operation;
+        this.prevDisplayInput = this.currentDisplayInput;
+        this.currentDisplayInput = '';
     }
 
     equals() {
+        let equation;
+        const prev = parseFloat(this.prevDisplayInput);
+        const current = parseFloat(this.currentDisplayInput);
+        if (isNaN(prev) || isNaN(current)) return;
+        switch (this.operation) {
+            case '+':
+                equation = prev + current;
+                break;
+            case '-':
+                equation = prev - current;
+                break;
+            case '/':
+                equation = prev / current;
+                break;
+            case 'X':
+                equation = prev * current;
+                break;
+            default:
+                return;
+        }
+        this.currentDisplayInput = equation;
+        this.operation = undefined;
+        this.prevDisplayInput = '';
+    }
 
+    getDisplayNumber(number) {
+        const floatNum = parseFloat(number);
+        if (isNaN(floatNum)) return '';
+        return number.toLocaleString('en')
     }
 
     updateDisplay() {
-
+        this.currentDisplayInputText.textContent = this.getDisplayNumber(this.currentDisplayInput);
+        if(this.operation != null) {
+            this.prevDisplayInputText.textContent = `${this.getDisplayNumber(this.prevDisplayInput)} ${this.operation}`;
+        } else {
+            this.prevDisplayInputText.textContent = '';
+        }
     }
 }
 
-let calcDisplay = document.getElementById('input-display');
-// calcDisplay.textContent = displayValue;
+const prevDisplayInputText = document.querySelector('[data-previous-display-input]');
+const currentDisplayInputText = document.querySelector('[data-current-display-input]');
 
-let calcButtons = document.getElementsByClassName('calc-button operator');
+const numButtons = document.querySelectorAll('[data-number]');
 
-const numButtons = document.getElementById('buttons-container');
+const clearButton = document.querySelector('[data-clear]');
 
-const clearButton = document.getElementById('clear');
+const opButtons = document.querySelectorAll('[data-operation]')
 
-const divideButton = document.getElementById('divide');
+const equalsButton = document.querySelector('[data-equals]');
 
-const multiplyButton = document.getElementById('multiply');
-
-const subtractButton = document.getElementById('subtract');
-
-const additionButton = document.getElementById('addition');
-
-const equalsButton = document.getElementById('equals');
-
-const calculator = new Calculator(calcDisplay);
+const calculator = new Calculator(prevDisplayInputText, currentDisplayInputText);
 
 numButtons.forEach(button => {
     button.addEventListener('click', () => {
-        calculator.appendNumber(buttton.textContent);
+        calculator.appendNumber(button.textContent);
         calculator.updateDisplay();
     })
 })
 
-// const add = function(a, b) {
-//     let sum = a + b;
-//     return sum;
-// }
+opButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.operationChoice(button.textContent);
+        calculator.updateDisplay();
+    })
+})
 
-// const subtract = function(a, b) {
-//     let difference = a - b;
-//     return difference;
-// }
+equalsButton.addEventListener('click', button => {
+    calculator.equals();
+    calculator.updateDisplay();
+})
 
-// const multiply = function(a, b) {
-//     let product = a * b;
-//     return product;
-// }
-
-// const divide = function(a, b) {
-//     let remainder = a / b;
-//     return remainder;
-// }
-
-const operator = function (op, a, b) {
-    let operator = op;
-    if (operator === '+'){
-        displayValue = add(a, b);
-    } else if (operator === '-'){
-        displayValue = subtract(a, b);
-    } else if (operator === '*'){
-        displayValue = multiply(a, b);
-    } else if (operator === "/") {
-        displayValue = divide(a, b);
-    } else {
-        displayValue = console.log('Invalid input');
-    }
-    return displayValue;
-};
-
-
-
-operator('+', 10, 10);
-
-
-
-numButtons.addEventListener('click', function(event) {
-    calcDisplay.textContent = event.srcElement.textContent;
-    equation.push(Number(event.srcElement.textContent))
-    console.log(equation);
-});
+clearButton.addEventListener('click', button => {
+    calculator.clear();
+    calculator.updateDisplay();
+})
