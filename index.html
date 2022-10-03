@@ -4,40 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
 </head>
 <body>
-    <div class="container" id="calc-body-container">
-        <div class="display-container">
-            <div data-previous-display-input></div>
-            <div data-current-display-input class="display" id="input-display"></div>
-        </div>
-        <div class="container" id="buttons-container">
-            <div class="container" id="top-row">
-                <button data-number class="calc-button number" id="seven">7</button>
-                <button data-number class="calc-button number" id="eight">8</button>
-                <button data-number class="calc-button number" id="nine">9</button>
-                <button data-clear class="calc-button operator" id="clear">C</button>
+    <div class="title">Calculator</div>
+    <div class="body-container">
+        <div class="container" id="calc-body-container">
+            <div class="display-container">
+                <div data-previous-display-input></div>
+                <div data-current-display-input class="display" id="input-display"></div>
             </div>
-            <div class="container" id="second-row">
-                <button data-number class="calc-button number" id="four">4</button>
-                <button data-number class="calc-button number" id="five">5</button>
-                <button data-number class="calc-button number" id="six">6</button>
-                <button data-operation class="calc-button operator" id="divide">/</button>
-            </div>
-            <div class="container" id="third-row">
-                <button data-number class="calc-button number" id="one">1</button>
-                <button data-number class="calc-button number" id="two">2</button>
-                <button data-number class="calc-button number" id="three">3</button>
-                <button data-operation class="calc-button operator" id="multiply">X</button>
-            </div>
-            <div class="container" id="bottom-row">
-                <button data-number class="calc-button number" id="zero">0</button>
-                <button data-operation class="calc-button operator" id="subtract">-</button>
-                <button data-operation class="calc-button operator" id="addition">+</button>
-                <button data-equals class="calc-button operator" id="equals">=</button>
+            <div class="container" id="buttons-container">
+                <div class="container" id="top-row">
+                    <button data-number class="calc-button number" id="seven">7</button>
+                    <button data-number class="calc-button number" id="eight">8</button>
+                    <button data-number class="calc-button number" id="nine">9</button>
+                    <button data-clear class="calc-button operator" id="clear">C</button>
+                </div>
+                <div class="container" id="second-row">
+                    <button data-number class="calc-button number" id="four">4</button>
+                    <button data-number class="calc-button number" id="five">5</button>
+                    <button data-number class="calc-button number" id="six">6</button>
+                    <button data-operation class="calc-button operator" id="divide">/</button>
+                </div>
+                <div class="container" id="third-row">
+                    <button data-number class="calc-button number" id="one">1</button>
+                    <button data-number class="calc-button number" id="two">2</button>
+                    <button data-number class="calc-button number" id="three">3</button>
+                    <button data-operation class="calc-button operator" id="multiply">X</button>
+                </div>
+                <div class="container" id="bottom-row">
+                    <button data-number class="calc-button number" id="zero">0</button>
+                    <button data-operation class="calc-button operator" id="subtract">-</button>
+                    <button data-operation class="calc-button operator" id="addition">+</button>
+                    <button data-equals class="calc-button operator" id="equals">=</button>
+                </div>
             </div>
         </div>
     </div>

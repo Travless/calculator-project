@@ -6,7 +6,6 @@ class Calculator {
     }
 
     appendNumber(number) {
-        // if (number === '.' && this.calcDisplay.includes('.')) return;
         this.currentDisplayInput = this.currentDisplayInput.toString() + number.toString();
     }
 
